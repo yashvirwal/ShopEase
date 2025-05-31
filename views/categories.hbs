@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Categories</h2>
+        <hr />
+        {{#if categories}}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each categories}}
+                    <tr>
+                        <td><a href="/items?category={{this.categoryID}}">{{this.categoryID}}</a></td>
+                        <td><a href="/items?category={{this.categoryID}}">{{this.categoryName}}</a></td>
+                        <td><a href="/categories/delete/{{this.categoryID}}" class="btn btn-danger">Remove</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <p>{{message}}</p>
+        {{/if}}
+    </div>
+</div>

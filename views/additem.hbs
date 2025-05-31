@@ -1,0 +1,69 @@
+<form method="post" action="/items/add" enctype="multipart/form-data">
+  <!-- Form fields for adding an item -->
+  <fieldset>
+    <legend>Feature Image</legend>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input class="form-control" id="featureImage" name="featureImage" type="file" />
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <br />
+  <fieldset>
+    <legend>Post Content</legend>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="title">Item Name:</label>
+          <input class="form-control" id="title" name="title" type="text" required />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input class="form-control" id="price" name="price" type="text" required />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="body">Description:</label>
+          <textarea class="form-control" id="body" name="body" rows="5" required></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select name="categoryID" id="categoryID" required>
+            <option value="">Select a category</option>
+            {{#each categories}}
+            <option value="{{this.categoryID}}">{{this.categoryName}}</option>
+            {{/each}}
+          </select>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="published">Visibility:</label>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="published" id="published" />
+              Published
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <hr />
+  <button type="submit" class="btn btn-primary float-right">Add Post</button>
+  <br /><br /><br />
+</form>
